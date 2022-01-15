@@ -6,7 +6,7 @@ import ListContainer from './components/ListContainer';
 function App() {
   return (
     <div className="App">
-      <NavBar />
+     <NavBar />  {/* Menu principal  */}
       <ListContainer greetings="Saludos..."/>
     </div>
   );
