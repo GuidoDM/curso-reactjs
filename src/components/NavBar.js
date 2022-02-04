@@ -7,35 +7,46 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import CarWidget from './CarWidget';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
 
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">Yury´s Boutique</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
+                {/* <Navbar.Brand href="#">Yury´s Boutique</Navbar.Brand> */}
+                <ul className='navbar-nav'> 
+                    <li className='nav-item mx-3'><Link to="/"> Yury´s Boutique </Link></li>
+                
                 <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">Inicio</Nav.Link>
-                    <Nav.Link href="#action2">Chamarras</Nav.Link>
-                    <Nav.Link href="#action3">Shorts</Nav.Link>
+                    
+                       
+                    <li className='nav-item mx-3'><NavLink to="/"> Inicio </NavLink></li> 
+                    <li className='nav-item mx-3'><Link to="/categoria/Chamarra">Chamarras</Link></li>
+                    {/* <Nav.Link href="#action2">Chamarras</Nav.Link> */}
+                    <li className='nav-item mx-3'><NavLink to="/categoria/Short">Shorts</NavLink></li>
+                    <li className='nav-item mx-3'>
                     <NavDropdown title="Jeans" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Pescadores</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Capri</NavDropdown.Item>
+                    <ul className='navbar-nav'>     
+                    <li className='nav-item mx-3'><NavLink to="/categoria/JeansPescadores">Pescadores</NavLink></li>
+                    <li className='nav-item mx-3'><NavLink to="/categoria/JeansCapri">Capri</NavLink></li>
                         {/* <NavDropdown.Divider />
                         <NavDropdown.Item href="#action5">
                             Something else here
                         </NavDropdown.Item>*/}
+                    </ul>
                     </NavDropdown>
+                    </li>
                     {/* <Nav.Link href="#" disabled>
                     Link
                     </Nav.Link>  */}
+                    
                 </Nav>
+                </ul>
                 {/* <Form className="d-flex">
                     <FormControl
                     type="search"
@@ -43,9 +54,10 @@ const NavBar = () => {
                     className="me-2"
                     aria-label="Search"
                     /> */}
-                    <Button variant="outline-success"><CarWidget /></Button>
+                    <Link to="/carrito"> <Button variant="outline-success"><CarWidget /></Button> </Link>
                 {/* </Form> */}
-                </Navbar.Collapse>
+               
+            
             </Container>
         </Navbar>
     )
